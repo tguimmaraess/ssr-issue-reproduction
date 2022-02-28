@@ -7,16 +7,13 @@ import { createWindow } from 'domino';
 import * as domino from 'domino';
 import { existsSync, readFileSync } from 'fs';
 
-const template = readFileSync(join(DIST_FOLDER, INDEX_HTML)).toString();
+const template = readFileSync(join(process.cwd(), '/charts/dist/charts/index.html')).toString();
 const win: any = domino.createWindow(template);
 global['window'] = win;
 global['document'] = win.document;
 
 import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
-import { AppServerModule } from './src/main.server';
-import { APP_BASE_HREF } from '@angular/common';
-import { existsSync } from 'fs';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
